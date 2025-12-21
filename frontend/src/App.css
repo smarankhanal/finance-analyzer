@@ -21,6 +21,9 @@
   --color-success: #16a34a;
   --color-warning: #f59e0b;
   --color-danger: #dc2626;
+
+  --color-text: #042f2e;
+  --color-text-body: #115e59;
 }
 
 .dark {
@@ -32,10 +35,12 @@
   --color-card: #134e4a;
   --color-border: #115e59;
 
-  --color-text: #ecfeff;
-  --color-text-muted: #99f6e4;
-
+  --color-text: #f0fdfa;
+  --color-text-body: #ccfbf1;
   --color-success: #22c55e;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
+}
+.anchor {
+  @apply font-bold hover:opacity-60 transition ease-in-out;
 }
