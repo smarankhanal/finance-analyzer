@@ -44,3 +44,6 @@
 .anchor {
   @apply font-bold hover:opacity-60 transition ease-in-out;
 }
+.btn-shadow {
+  @apply shadow-[1px_1px_2px_#000000] dark:shadow-[1px_1px_2px_#0a3b3b];
+}

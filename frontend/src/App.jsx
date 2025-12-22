@@ -1,5 +1,5 @@
 import "./App.css";
-import { DarkModeInitalizer, Footer, Navbar } from "./components";
+import { DarkModeInitalizer, Footer, Input, Navbar, Login } from "./components";
 import { FirstPage } from "./pages";
 
 export default function App() {
@@ -9,7 +9,8 @@ export default function App() {
       <Navbar />
 
       <main className="grow p-4">
-        <FirstPage />
+        {/* <FirstPage /> */}
+        <Login />
       </main>
 
       <Footer />
