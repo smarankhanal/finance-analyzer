@@ -1,6 +1,7 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import { DarkModeInitalizer, Footer, Input, Navbar, Login } from "./components";
-import { FirstPage } from "./pages";
+import { DarkModeInitalizer, Footer, Navbar } from "./components";
+import { FirstPage, Login, Register } from "./pages";
 
 export default function App() {
   return (
@@ -9,8 +10,7 @@ export default function App() {
       <Navbar />
 
       <main className="grow p-4">
-        {/* <FirstPage /> */}
-        <Login />
+        <Outlet />
       </main>
 
       <Footer />
