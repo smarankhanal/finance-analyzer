@@ -9,6 +9,7 @@ export default function Register() {
       <div className="space-y-2">
         <Input label="Email" placeholder="Enter the email" />
         <Input label="Username" placeholder="Enter the username" />
+        <Input label="Fullname" placeholder="Enter the fullname" />
         <Input label="Password" placeholder="Enter the password" />
         <Input
           type="file"
