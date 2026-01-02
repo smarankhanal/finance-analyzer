@@ -57,11 +57,11 @@ const registerUser = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
   const { identifier, password } = req.body;
   if (!identifier) {
-    throw new ApiError(404, "Email os username is missing");
+    throw new ApiError(404, "Email or username is missing");
   }
   const user = await User.findOne({
     $or: [{ email: identifier }, { username: identifier }],
-  });
+  }).select("+password");
   if (!user) {
     throw new ApiError(404, "User doesnot exist");
   }
@@ -120,7 +120,7 @@ const logout = asyncHandler(async (req, res) => {
 const refreshAccessToken = asyncHandler(async (req, res) => {
   const incomingRefreshToken =
     req.cookies?.refreshToken || req.body?.refreshToken;
-
+  console.log(req.body);
   if (!incomingRefreshToken) {
     throw new ApiError(401, "Unauthorized access - no refresh token provided");
   }
