@@ -4,7 +4,7 @@ import { toCapitalize } from "../utlis/captialize.js";
 import ApiResponse from "../utlis/ApiResponse.js";
 import uploadOnCloudinary from "../utlis/cloudinary.js";
 import { User } from "../models/user.model.js";
-
+import jwt from "jsonwebtoken";
 const generateAccessAndRefreshToken = async (userId) => {
   try {
     const user = await User.findById(userId);
@@ -120,7 +120,6 @@ const logout = asyncHandler(async (req, res) => {
 const refreshAccessToken = asyncHandler(async (req, res) => {
   const incomingRefreshToken =
     req.cookies?.refreshToken || req.body?.refreshToken;
-  console.log(req.body);
   if (!incomingRefreshToken) {
     throw new ApiError(401, "Unauthorized access - no refresh token provided");
   }
@@ -131,7 +130,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
       process.env.REFRESH_TOKEN_SECRET
     );
 
-    const user = await User.findById(decodedToken?._id);
+    const user = await User.findById(decodedToken?.id);
 
     if (!user) {
       throw new ApiError(401, "Invalid refresh token");
